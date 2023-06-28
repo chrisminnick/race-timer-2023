@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import Background from './Background';
+import Timer from './Timer';
+import Contestant from './Contestant';
+import { useState } from 'react';
 
 function App() {
+  const [time, setTime] = useState(0);
+  const contestants = [
+    'Ahmed Karman',
+    'Andrew Cruz',
+    'Andrew Pepper',
+    'Andrew Weekes',
+    'Calvin Chadima',
+    'Dino  Alihodzic',
+    'Duy Dao',
+    'Erick Ruilova',
+    'Gavin Palazzo',
+    'Humberto Sanchez Heredia',
+    'Hunter Vetterkind',
+    'Jared Button',
+    'Jing Li',
+    'Joshua Fernandes',
+    'Katherine Morton',
+    'Lin Watson',
+    'Prabin Jarka',
+    'Victor Chen',
+    'Zach Dubinsky',
+    'Chris Penick',
+    'Chris Minnick',
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Background time={time}>
+      <Timer time={time} setTime={setTime} />
+      {contestants.map((contestant) => (
+        <Contestant time={time} contestantName={contestant} />
+      ))}
+    </Background>
   );
 }
-
 export default App;
