@@ -1,71 +1,59 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 import Background from './Background';
 import Timer from './Timer';
 import Contestant from './Contestant';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      time: 0,
-      contestants: [
-        'Ahmed Karman',
-        'Andrew Cruz',
-        'Andrew Pepper',
-        'Andrew Weekes',
-        'Calvin Chadima',
-        'Dino Alihodzic',
-        'Duy Dao',
-        'Erick Ruilova',
-        'Gavin Palazzo',
-        'Humberto Sanchez Heredia',
-        'Hunter Vetterkind',
-        'Jared Button',
-        'Jing Li',
-        'Joshua Fernandes',
-        'Katherine Morton',
-        'Lin Watson',
-        'Prabin Jarka',
-        'Victor Chen',
-        'Zach Dubinsky',
-        'Chris Penick',
-        'Chris Minnick',
-      ],
-    };
-    this.setTime = this.setTime.bind(this);
-  }
+function App(props) {
+  const [time, setTime] = useState(0);
+  const [contestants, setContestants] = useState([
+    'Ahmed Karman',
+    'Andrew Cruz',
+    'Andrew Pepper',
+    'Andrew Weekes',
+    'Calvin Chadima',
+    'Dino Alihodzic',
+    'Duy Dao',
+    'Erick Ruilova',
+    'Gavin Palazzo',
+    'Humberto Sanchez Heredia',
+    'Hunter Vetterkind',
+    'Jared Button',
+    'Jing Li',
+    'Joshua Fernandes',
+    'Katherine Morton',
+    'Lin Watson',
+    'Prabin Jarka',
+    'Victor Chen',
+    'Zach Dubinsky',
+    'Chris Penick',
+    'Chris Minnick',
+  ]);
 
-  componentDidMount() {
-    let clock = setInterval(() => {
-      this.setTime(this.state.time + 1);
-    }, 100);
-  }
+  useEffect(() => {
+    setInterval(() => {
+      setTime((t) => t + 1);
+    }, 200);
+  }, []);
 
-  setTime(newTime) {
-    this.setState({ time: newTime });
-  }
-  generateContestantList() {
+  function generateContestantList() {
     let ypos = 60;
-    const contestantsList = this.state.contestants.map((contestant) => {
+    const contestantsList = contestants.map((contestant) => {
       ypos = ypos + 30;
-      return (
-        <Contestant
-          ypos={ypos}
-          time={this.state.time}
-          contestantName={contestant}
-        />
-      );
+      return <Contestant ypos={ypos} time={time} contestantName={contestant} />;
     });
     return contestantsList;
   }
-  render() {
-    return (
-      <Background time={this.state.time}>
-        <Timer time={this.state.time} setTime={this.setTime} />
-        {this.generateContestantList()}
-      </Background>
-    );
-  }
+  return (
+    <Background time={time}>
+      <Timer time={time} setTime={() => setTime({ time: time + 1 })} />
+      {generateContestantList()}
+    </Background>
+  );
 }
+
+// componentDidMount() {
+//   let clock =
+// }
+
 export default App;
