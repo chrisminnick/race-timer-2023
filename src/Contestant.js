@@ -1,5 +1,5 @@
 function Contestant(props) {
-  const leftPos = props.time * 2;
+  const leftPos = Math.floor(Math.random() * 300 + props.time * 3);
 
   const characterStyle = {
     position: 'absolute',

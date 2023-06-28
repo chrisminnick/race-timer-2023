@@ -35,6 +35,13 @@ class App extends React.Component {
     };
     this.setTime = this.setTime.bind(this);
   }
+
+  componentDidMount() {
+    let clock = setInterval(() => {
+      this.setTime(this.state.time + 1);
+    }, 100);
+  }
+
   setTime(newTime) {
     this.setState({ time: newTime });
   }
