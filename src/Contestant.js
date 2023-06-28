@@ -4,6 +4,7 @@ function Contestant(props) {
   const characterStyle = {
     position: 'absolute',
     left: leftPos,
+    top: props.ypos,
   };
 
   return <p style={characterStyle}>{props.contestantName}</p>;
