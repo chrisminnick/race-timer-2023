@@ -12,22 +12,22 @@ function App(props) {
     'Andrew Pepper',
     'Andrew Weekes',
     'Calvin Chadima',
-    'Dino Alihodzic',
-    'Duy Dao',
-    'Erick Ruilova',
-    'Gavin Palazzo',
-    'Humberto Sanchez Heredia',
-    'Hunter Vetterkind',
-    'Jared Button',
-    'Jing Li',
-    'Joshua Fernandes',
-    'Katherine Morton',
-    'Lin Watson',
-    'Prabin Jarka',
-    'Victor Chen',
-    'Zach Dubinsky',
-    'Chris Penick',
-    'Chris Minnick',
+    // 'Dino Alihodzic',
+    // 'Duy Dao',
+    // 'Erick Ruilova',
+    // 'Gavin Palazzo',
+    // 'Humberto Sanchez Heredia',
+    // 'Hunter Vetterkind',
+    // 'Jared Button',
+    // 'Jing Li',
+    // 'Joshua Fernandes',
+    // 'Katherine Morton',
+    // 'Lin Watson',
+    // 'Prabin Jarka',
+    // 'Victor Chen',
+    // 'Zach Dubinsky',
+    // 'Chris Penick',
+    // 'Chris Minnick',
   ]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function App(props) {
   function generateContestantList() {
     let ypos = 60;
     const contestantsList = contestants.map((contestant) => {
-      ypos = ypos + 30;
+      ypos = ypos + 100;
       return <Contestant ypos={ypos} time={time} contestantName={contestant} />;
     });
     return contestantsList;

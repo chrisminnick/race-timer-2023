@@ -1,3 +1,5 @@
+import bird from './images/ZHug.gif';
+
 function Contestant(props) {
   const leftPos = Math.floor(Math.random() * 300 + props.time * 3);
 
@@ -7,6 +9,11 @@ function Contestant(props) {
     top: props.ypos,
   };
 
-  return <p style={characterStyle}>{props.contestantName}</p>;
+  return (
+    <p style={characterStyle}>
+      {props.contestantName}
+      <img src={bird} />
+    </p>
+  );
 }
 export default Contestant;
