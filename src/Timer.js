@@ -4,6 +4,7 @@ function Timer(props) {
   }
   return (
     <p
+      data-testid="timer"
       style={{
         textAlign: 'center',
         borderRadius: '10px',
