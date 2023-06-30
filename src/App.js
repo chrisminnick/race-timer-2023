@@ -46,6 +46,7 @@ function App(props) {
   }
   return (
     <Background time={time}>
+      <button>Start Timer</button>
       <Timer time={time} setTime={() => setTime({ time: time + 1 })} />
       {generateContestantList()}
     </Background>

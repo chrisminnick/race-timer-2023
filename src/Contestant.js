@@ -1,7 +1,7 @@
 import bird from './images/ZHug.gif';
 
 function Contestant(props) {
-  const leftPos = Math.floor(Math.random() * 300 + props.time * 3);
+  const leftPos = Math.floor(Math.random() * 150 + props.time * 3);
 
   const characterStyle = {
     position: 'absolute',
